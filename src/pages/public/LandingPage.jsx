@@ -1,6 +1,6 @@
 /**
  * Page: LandingPage (Public)
- * High-impact presentation for VITALIA — Educación · Movimiento · Bienestar.
+ * High-impact presentation for VITALIA with staggered loading animations.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -34,9 +34,10 @@ export const LandingPage = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '56px' }} className="animate-fade">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '56px' }}>
       {/* 1. HERO SECTION */}
       <section
+        className="animate-fade-up"
         style={{
           position: 'relative',
           overflow: 'hidden',
@@ -48,33 +49,37 @@ export const LandingPage = () => {
           border: '1px solid rgba(132, 204, 22, 0.2)'
         }}
       >
-        {/* Decorative background glows */}
+        {/* Decorative background ambient glows */}
         <div
+          className="animate-float"
           style={{
             position: 'absolute',
             top: '-50px',
             right: '-50px',
             width: '340px',
             height: '340px',
-            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.2) 0%, rgba(0,0,0,0) 70%)',
+            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, rgba(0,0,0,0) 70%)',
             pointerEvents: 'none'
           }}
         />
         <div
+          className="animate-float"
           style={{
             position: 'absolute',
             bottom: '-60px',
             left: '10%',
             width: '300px',
             height: '300px',
-            background: 'radial-gradient(circle, rgba(22, 163, 74, 0.2) 0%, rgba(0,0,0,0) 70%)',
-            pointerEvents: 'none'
+            background: 'radial-gradient(circle, rgba(22, 163, 74, 0.25) 0%, rgba(0,0,0,0) 70%)',
+            pointerEvents: 'none',
+            animationDelay: '2s'
           }}
         />
 
         <div style={{ maxWidth: '840px', position: 'relative', zIndex: 2 }}>
-          {/* Logo badge in Hero */}
+          {/* Logo badge */}
           <div
+            className="animate-scale-in stagger-1"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -97,6 +102,7 @@ export const LandingPage = () => {
           </div>
 
           <h1
+            className="animate-fade-up stagger-2"
             style={{
               fontSize: 'clamp(28px, 4.5vw, 44px)',
               fontWeight: 800,
@@ -110,6 +116,7 @@ export const LandingPage = () => {
           </h1>
 
           <p
+            className="animate-fade-up stagger-3"
             style={{
               fontSize: 'clamp(15px, 2vw, 18px)',
               color: '#dcfce7',
@@ -122,6 +129,7 @@ export const LandingPage = () => {
 
           {/* Quote */}
           <div
+            className="animate-fade-up stagger-4"
             style={{
               background: 'rgba(255, 255, 255, 0.08)',
               borderLeft: '4px solid #84cc16',
@@ -140,7 +148,7 @@ export const LandingPage = () => {
           </div>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+          <div className="animate-fade-up stagger-5" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
             <Link
               to="/register"
               className="btn-primary"
@@ -179,7 +187,7 @@ export const LandingPage = () => {
 
       {/* 2. THE 3 FUNDAMENTAL PILLARS */}
       <section>
-        <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 36px auto' }}>
+        <div className="animate-fade-up stagger-2" style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 36px auto' }}>
           <span className="badge-pill badge-vitalia" style={{ marginBottom: '12px' }}>
             El Enfoque Vitalia
           </span>
@@ -197,24 +205,27 @@ export const LandingPage = () => {
               icon: <HeartPulse size={24} color="#15803d" />,
               badge: 'Alimentación & Salud',
               question: '¿Sabes cómo influye la alimentación en tu salud y en tus resultados?',
-              answer: 'Aprende qué nutrientes necesita tu cuerpo para rendir, recuperarse y mantener niveles óptimos de energía sin dietas extremas ni restricciones dañinas.'
+              answer: 'Aprende qué nutrientes necesita tu cuerpo para rendir, recuperarse y mantener niveles óptimos de energía sin dietas extremas ni restricciones dañinas.',
+              delay: 'stagger-3'
             },
             {
               icon: <Activity size={24} color="#65a30d" />,
               badge: 'Ejercicio & Biomecánica',
               question: '¿Estás realizando los ejercicios adecuados para ti o solo repites rutinas?',
-              answer: 'Domina los patrones de movimiento esenciales (sentadillas, empujes, tracciones) conociendo el porqué biomecánico y la activación articular correcta.'
+              answer: 'Domina los patrones de movimiento esenciales (sentadillas, empujes, tracciones) conociendo el porqué biomecánico y la activación articular correcta.',
+              delay: 'stagger-4'
             },
             {
               icon: <Moon size={24} color="#15803d" />,
               badge: 'Descanso Regenerativo',
               question: '¿Comprendes la importancia vital del descanso reparador?',
-              answer: 'El entrenamiento es el estímulo, pero el descanso consolida las adaptaciones celulares. Descubre cómo el sueño regenera tu sistema neuromuscular.'
+              answer: 'El entrenamiento es el estímulo, pero el descanso consolida las adaptaciones celulares. Descubre cómo el sueño regenera tu sistema neuromuscular.',
+              delay: 'stagger-5'
             }
           ].map((item, idx) => (
             <div
               key={idx}
-              className="card-premium"
+              className={`card-premium animate-fade-up ${item.delay}`}
               style={{
                 padding: '28px',
                 display: 'flex',
@@ -255,7 +266,7 @@ export const LandingPage = () => {
 
       {/* 3. PROGRAMS SHOWCASE */}
       <section>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
+        <div className="animate-fade-up stagger-3" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
           <div>
             <span className="badge-pill badge-green" style={{ marginBottom: '8px' }}>
               Oferta Formativa
@@ -273,10 +284,10 @@ export const LandingPage = () => {
           <div style={{ textAlign: 'center', padding: '40px', color: '#64748b' }}>Cargando programas...</div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px' }}>
-            {programs.map((p) => (
+            {programs.map((p, idx) => (
               <div
                 key={p.id}
-                className="card-premium"
+                className={`card-premium animate-fade-up stagger-${idx + 4}`}
                 style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ position: 'relative', height: '190px' }}>
@@ -358,6 +369,7 @@ export const LandingPage = () => {
 
       {/* 4. INSTRUCTOR PROFILE */}
       <section
+        className="card-premium animate-fade-up stagger-5"
         style={{
           background: '#ffffff',
           borderRadius: '20px',
@@ -369,7 +381,7 @@ export const LandingPage = () => {
           alignItems: 'center'
         }}
       >
-        <div>
+        <div className="animate-slide-left stagger-6">
           <span className="badge-pill badge-vitalia" style={{ marginBottom: '12px' }}>
             Instructora &amp; Fundadora
           </span>
@@ -393,7 +405,7 @@ export const LandingPage = () => {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center' }}>
+        <div className="animate-scale-in stagger-7" style={{ textAlign: 'center' }}>
           <img
             src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&auto=format&fit=crop&q=80"
             alt="Yessi Lizama"

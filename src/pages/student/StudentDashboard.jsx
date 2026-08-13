@@ -1,6 +1,6 @@
 /**
  * Page: StudentDashboard (Student)
- * Premium student dashboard with progress metrics, live class alerts, and quick actions.
+ * Premium student dashboard with staggered loading animations.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -67,8 +67,8 @@ export const StudentDashboard = () => {
   if (loading) {
     return (
       <div style={{ textAlign: 'center', padding: '60px', color: '#64748b' }}>
-        <div className="pulse-indicator" style={{ fontSize: '24px', marginBottom: '12px' }}>✨</div>
-        <p>Cargando tu aula virtual y progreso...</p>
+        <div className="pulse-indicator" style={{ fontSize: '28px', marginBottom: '12px' }}>🌿</div>
+        <p>Cargando tu aula virtual VITALIA...</p>
       </div>
     );
   }
@@ -78,16 +78,17 @@ export const StudentDashboard = () => {
   const percentage = progressSummary?.percentage || 0;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }} className="animate-fade">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       {/* 1. WELCOME BANNER */}
       <div
+        className="animate-fade-up stagger-1"
         style={{
-          background: 'linear-gradient(135deg, #090d16 0%, #1e3a8a 100%)',
+          background: 'linear-gradient(135deg, #061e12 0%, #0d3822 50%, #14532d 100%)',
           color: '#ffffff',
           padding: '32px',
           borderRadius: '20px',
-          boxShadow: '0 10px 25px -5px rgba(30, 58, 138, 0.3)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 10px 25px -5px rgba(6, 30, 18, 0.4)',
+          border: '1px solid rgba(132, 204, 22, 0.25)',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -96,9 +97,9 @@ export const StudentDashboard = () => {
           <div style={{ maxWidth: '700px' }}>
             <span
               style={{
-                background: 'rgba(59, 130, 246, 0.2)',
-                border: '1px solid rgba(96, 165, 250, 0.3)',
-                color: '#93c5fd',
+                background: 'rgba(255, 255, 255, 0.12)',
+                border: '1px solid rgba(132, 204, 22, 0.4)',
+                color: '#bef264',
                 padding: '4px 12px',
                 borderRadius: '999px',
                 fontSize: '11px',
@@ -108,12 +109,12 @@ export const StudentDashboard = () => {
                 marginBottom: '12px'
               }}
             >
-              Aula Virtual de Alumno
+              Aula Virtual VITALIA
             </span>
             <h2 style={{ fontSize: '26px', margin: '0 0 10px 0', color: '#ffffff' }}>
               ¡Hola, {user?.name.split(' ')[0]}!
             </h2>
-            <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '14px', color: '#dcfce7', lineHeight: 1.6, margin: 0 }}>
               "El conocimiento transforma. El saber te da el poder para avanzar y cuidar tu salud con confianza."
             </p>
           </div>
@@ -122,7 +123,7 @@ export const StudentDashboard = () => {
             <img
               src={user?.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200'}
               alt={user?.name}
-              style={{ width: '56px', height: '56px', borderRadius: '50%', border: '2px solid #3b82f6', objectFit: 'cover' }}
+              style={{ width: '56px', height: '56px', borderRadius: '50%', border: '2px solid #84cc16', objectFit: 'cover' }}
             />
           </div>
         </div>
@@ -130,6 +131,7 @@ export const StudentDashboard = () => {
         {/* Evaluation alert banner if pending */}
         {!evaluation && (
           <div
+            className="animate-scale-in stagger-2"
             style={{
               marginTop: '20px',
               background: 'rgba(255, 255, 255, 0.1)',
@@ -153,7 +155,7 @@ export const StudentDashboard = () => {
               to="/app/evaluacion"
               style={{
                 background: '#ffffff',
-                color: '#1e3a8a',
+                color: '#14532d',
                 padding: '6px 14px',
                 borderRadius: '6px',
                 fontSize: '12px',
@@ -170,15 +172,15 @@ export const StudentDashboard = () => {
       {/* 2. STATS & PROGRESS ROW */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
         {/* Progress Card */}
-        <div className="card-premium" style={{ padding: '24px' }}>
+        <div className="card-premium animate-fade-up stagger-2" style={{ padding: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <span style={{ fontSize: '13px', fontWeight: 600, color: '#64748b' }}>Avance Formativo</span>
-            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#d1fae5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Award size={18} color="#059669" />
+            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#dcfce7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Award size={18} color="#15803d" />
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '32px', fontWeight: 800, color: '#059669', fontFamily: 'var(--font-heading)' }}>
+            <span style={{ fontSize: '32px', fontWeight: 800, color: '#15803d', fontFamily: 'var(--font-heading)' }}>
               {percentage}%
             </span>
             <span style={{ fontSize: '13px', color: '#64748b' }}>completado</span>
@@ -190,9 +192,9 @@ export const StudentDashboard = () => {
               style={{
                 width: `${percentage}%`,
                 height: '100%',
-                background: 'linear-gradient(90deg, #10b981, #059669)',
+                background: 'linear-gradient(90deg, #65a30d, #15803d)',
                 borderRadius: '999px',
-                transition: 'width 0.4s ease'
+                transition: 'width 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             />
           </div>
@@ -202,7 +204,7 @@ export const StudentDashboard = () => {
         </div>
 
         {/* Next Live Class */}
-        <div className="card-premium" style={{ padding: '24px' }}>
+        <div className="card-premium animate-fade-up stagger-3" style={{ padding: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <span style={{ fontSize: '13px', fontWeight: 600, color: '#64748b' }}>Próxima Clase en Directo</span>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#ede9fe', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -228,11 +230,11 @@ export const StudentDashboard = () => {
         </div>
 
         {/* Pedagogical Exercise Guide Card */}
-        <div className="card-premium" style={{ padding: '24px' }}>
+        <div className="card-premium animate-fade-up stagger-4" style={{ padding: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <span style={{ fontSize: '13px', fontWeight: 600, color: '#64748b' }}>Biblioteca de Técnica</span>
-            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#dbeafe', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Activity size={18} color="#2563eb" />
+            <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Activity size={18} color="#059669" />
             </div>
           </div>
           <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>
@@ -240,20 +242,20 @@ export const StudentDashboard = () => {
           </p>
           <Link
             to="/app/ejercicios"
-            style={{ fontSize: '13px', fontWeight: 700, color: '#2563eb', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+            style={{ fontSize: '13px', fontWeight: 700, color: '#15803d', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
           >
             Explorar Ejercicios <ArrowRight size={14} />
           </Link>
         </div>
       </div>
 
-      {/* 3. MAIN SECTION: ACTIVE PROGRAM & QUICK MODULES */}
+      {/* 3. MAIN SECTION: ACTIVE PROGRAM & SHORTCUTS */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
         {/* Active Program Details */}
-        <div className="card-premium" style={{ padding: '28px' }}>
+        <div className="card-premium animate-fade-up stagger-4" style={{ padding: '28px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <h3 style={{ fontSize: '18px', color: '#0f172a', margin: 0 }}>Tu Programa Inscrito</h3>
-            <span className="badge-pill badge-blue">Activo</span>
+            <span className="badge-pill badge-green">Activo</span>
           </div>
 
           {activeProgram ? (
@@ -269,7 +271,7 @@ export const StudentDashboard = () => {
                     position: 'absolute',
                     top: '12px',
                     left: '12px',
-                    background: 'rgba(15, 23, 42, 0.8)',
+                    background: 'rgba(12, 56, 34, 0.85)',
                     color: '#fff',
                     padding: '3px 8px',
                     borderRadius: '4px',
@@ -315,12 +317,13 @@ export const StudentDashboard = () => {
           {/* Live stream trigger card */}
           {upcomingLive.length > 0 && (
             <div
+              className="animate-scale-in stagger-5"
               style={{
-                background: 'linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%)',
+                background: 'linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%)',
                 color: '#ffffff',
                 padding: '24px',
                 borderRadius: '16px',
-                boxShadow: '0 8px 20px -4px rgba(109, 40, 217, 0.3)'
+                boxShadow: '0 8px 20px -4px rgba(76, 29, 149, 0.3)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
@@ -344,7 +347,7 @@ export const StudentDashboard = () => {
                   alignItems: 'center',
                   gap: '6px',
                   background: '#ffffff',
-                  color: '#6d28d9',
+                  color: '#4c1d95',
                   padding: '10px 16px',
                   borderRadius: '8px',
                   fontSize: '13px',
@@ -358,7 +361,7 @@ export const StudentDashboard = () => {
           )}
 
           {/* Quick study material */}
-          <div className="card-premium" style={{ padding: '24px', flex: 1 }}>
+          <div className="card-premium animate-fade-up stagger-6" style={{ padding: '24px', flex: 1 }}>
             <h4 style={{ fontSize: '15px', color: '#0f172a', margin: '0 0 12px 0' }}>Accesos Directos</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <Link
@@ -378,7 +381,7 @@ export const StudentDashboard = () => {
                 }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <FileText size={16} color="#2563eb" /> Guías y Manuales PDF
+                  <FileText size={16} color="#15803d" /> Guías y Manuales PDF
                 </span>
                 <ArrowRight size={14} color="#64748b" />
               </Link>
@@ -400,7 +403,7 @@ export const StudentDashboard = () => {
                 }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ClipboardCheck size={16} color="#059669" /> Mi Evaluación Inicial
+                  <ClipboardCheck size={16} color="#15803d" /> Mi Evaluación Inicial
                 </span>
                 <ArrowRight size={14} color="#64748b" />
               </Link>
