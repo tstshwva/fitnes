@@ -1,13 +1,12 @@
 /**
  * Component: Layout
- * Master layout wrapper with Vitalia brand identity.
+ * Master layout wrapper with MOVARA brand identity.
  */
 
 import React from 'react';
 import { Header } from './Header';
 import { DevRoleSwitcher } from './DevRoleSwitcher';
-import logoImg from '../../assets/logo.png';
-import { Heart, Sparkles, BookOpen, ShieldCheck } from 'lucide-react';
+import { Heart, Sparkles, BookOpen, ShieldCheck, Activity } from 'lucide-react';
 
 export const Layout = ({ children }) => {
   return (
@@ -48,14 +47,26 @@ export const Layout = ({ children }) => {
           {/* Col 1 */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-              <img
-                src={logoImg}
-                alt="Vitalia Logo"
-                style={{ height: '48px', width: 'auto', borderRadius: '8px', background: '#ffffff', padding: '4px' }}
-              />
+              <div
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(135deg, #15803d, #0c3822)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                  fontWeight: 900,
+                  fontSize: '18px',
+                  fontFamily: 'var(--font-heading)'
+                }}
+              >
+                M
+              </div>
               <div>
                 <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#ffffff', margin: 0, letterSpacing: '0.04em' }}>
-                  VITALIA
+                  MOVARA
                 </h3>
                 <span style={{ fontSize: '11px', color: '#84cc16', fontWeight: 700, textTransform: 'uppercase' }}>
                   Educación &bull; Movimiento &bull; Bienestar
@@ -111,7 +122,7 @@ export const Layout = ({ children }) => {
           }}
         >
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} VITALIA &bull; Educación, Movimiento y Bienestar &bull; Instructora Yessi Lizama.
+            &copy; {new Date().getFullYear()} MOVARA &bull; Educación, Movimiento y Bienestar &bull; Instructora Yessi Lizama.
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <ShieldCheck size={14} color="#22c55e" />

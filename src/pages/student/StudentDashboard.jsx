@@ -1,6 +1,6 @@
 /**
  * Page: StudentDashboard (Student)
- * Premium student dashboard with staggered loading animations.
+ * Premium student dashboard for MOVARA.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -68,7 +68,7 @@ export const StudentDashboard = () => {
     return (
       <div style={{ textAlign: 'center', padding: '60px', color: '#64748b' }}>
         <div className="pulse-indicator" style={{ fontSize: '28px', marginBottom: '12px' }}>🌿</div>
-        <p>Cargando tu aula virtual VITALIA...</p>
+        <p>Cargando tu aula virtual MOVARA...</p>
       </div>
     );
   }
@@ -109,7 +109,7 @@ export const StudentDashboard = () => {
                 marginBottom: '12px'
               }}
             >
-              Aula Virtual VITALIA
+              Aula Virtual MOVARA
             </span>
             <h2 style={{ fontSize: '26px', margin: '0 0 10px 0', color: '#ffffff' }}>
               ¡Hola, {user?.name.split(' ')[0]}!

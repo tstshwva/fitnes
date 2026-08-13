@@ -1,12 +1,11 @@
 /**
  * Page: LoginPage (Public)
- * Modern split-screen login page with Vitalia brand logo and instant demo access.
+ * Modern split-screen login page with MOVARA brand identity and instant demo access.
  */
 
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import logoImg from '../../assets/logo.png';
 import {
   LogIn,
   Mail,
@@ -69,8 +68,9 @@ export const LoginPage = () => {
       }}
       className="animate-fade"
     >
-      {/* Left Column: Brand & Philosophy */}
+      {/* Left Column: MOVARA Brand & Philosophy */}
       <div
+        className="animate-slide-left"
         style={{
           background: 'linear-gradient(135deg, #061e12 0%, #0d3822 50%, #14532d 100%)',
           color: '#ffffff',
@@ -82,14 +82,26 @@ export const LoginPage = () => {
       >
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
-            <img
-              src={logoImg}
-              alt="Vitalia"
-              style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#ffffff', padding: '2px' }}
-            />
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '10px',
+                background: '#ffffff',
+                color: '#0c3822',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 900,
+                fontSize: '20px',
+                fontFamily: 'var(--font-heading)'
+              }}
+            >
+              M
+            </div>
             <div>
-              <div style={{ fontSize: '18px', fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.1 }}>
-                VITALIA
+              <div style={{ fontSize: '20px', fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.1 }}>
+                MOVARA
               </div>
               <div style={{ fontSize: '10px', color: '#bef264', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                 Educación &bull; Movimiento &bull; Bienestar
@@ -120,16 +132,16 @@ export const LoginPage = () => {
         </div>
 
         <div style={{ fontSize: '12px', color: '#86efac', marginTop: '24px' }}>
-          VITALIA &bull; Plataforma Oficial de Formación Continua
+          MOVARA &bull; Plataforma Oficial de Formación Continua
         </div>
       </div>
 
       {/* Right Column: Login Form & Quick Access */}
-      <div style={{ padding: '48px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div className="animate-slide-right" style={{ padding: '48px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '24px', margin: '0 0 6px 0', color: '#0f172a' }}>Iniciar Sesión</h2>
           <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
-            Ingresa a tu cuenta de VITALIA o usa los accesos de prueba
+            Ingresa a tu cuenta de MOVARA o usa los accesos de prueba
           </p>
         </div>
 
@@ -178,7 +190,7 @@ export const LoginPage = () => {
             className="btn-primary"
             style={{ width: '100%', padding: '12px', marginTop: '6px', borderRadius: '8px' }}
           >
-            <LogIn size={16} /> {isSubmitting ? 'Accediendo...' : 'Entrar a VITALIA'}
+            <LogIn size={16} /> {isSubmitting ? 'Accediendo...' : 'Entrar a MOVARA'}
           </button>
         </form>
 

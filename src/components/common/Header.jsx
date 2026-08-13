@@ -1,18 +1,17 @@
 /**
  * Component: Header
- * Global Navigation Bar with official VITALIA logo, role-aware menu, active highlights, and profile preview.
+ * Global Navigation Bar with MOVARA brand typographic identity, role-aware menu, and profile preview.
  */
 
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import logoImg from '../../assets/logo.png';
 import {
+  Activity,
   Home,
   BookOpen,
   Video,
   FileText,
-  Activity,
   User,
   ClipboardList,
   Layers,
@@ -65,7 +64,7 @@ export const Header = () => {
         style={{
           maxWidth: '1240px',
           margin: '0 auto',
-          padding: '10px 24px',
+          padding: '12px 24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -73,21 +72,30 @@ export const Header = () => {
           gap: '16px'
         }}
       >
-        {/* Brand with Official Vitalia Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-          <img
-            src={logoImg}
-            alt="Vitalia"
+        {/* MOVARA Typographic Brand */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <div
             style={{
-              height: '46px',
-              width: 'auto',
-              objectFit: 'contain',
-              borderRadius: '6px'
+              width: '38px',
+              height: '38px',
+              borderRadius: '10px',
+              background: 'linear-gradient(135deg, #15803d 0%, #0c3822 100%)',
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 900,
+              fontSize: '18px',
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '-0.02em',
+              boxShadow: '0 4px 10px rgba(21, 128, 61, 0.25)'
             }}
-          />
+          >
+            M
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ fontSize: '18px', fontWeight: 900, color: '#0c3822', letterSpacing: '0.04em', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
-              VITALIA
+            <div style={{ fontSize: '20px', fontWeight: 900, color: '#0c3822', letterSpacing: '0.04em', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
+              MOVARA
             </div>
             <div style={{ fontSize: '10px', color: '#65a30d', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Educación &bull; Movimiento &bull; Bienestar

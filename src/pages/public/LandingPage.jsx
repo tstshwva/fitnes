@@ -1,12 +1,11 @@
 /**
  * Page: LandingPage (Public)
- * High-impact presentation for VITALIA with staggered loading animations.
+ * High-impact presentation for MOVARA with staggered loading animations.
  */
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { programService } from '../../services/programService';
-import logoImg from '../../assets/logo.png';
 import {
   Sparkles,
   ArrowRight,
@@ -77,7 +76,7 @@ export const LandingPage = () => {
         />
 
         <div style={{ maxWidth: '840px', position: 'relative', zIndex: 2 }}>
-          {/* Logo badge */}
+          {/* MOVARA Badge in Hero */}
           <div
             className="animate-scale-in stagger-1"
             style={{
@@ -87,7 +86,7 @@ export const LandingPage = () => {
               background: 'rgba(255, 255, 255, 0.12)',
               border: '1px solid rgba(163, 230, 53, 0.4)',
               color: '#d9f99d',
-              padding: '6px 16px',
+              padding: '6px 18px',
               borderRadius: '999px',
               fontSize: '12px',
               fontWeight: 800,
@@ -97,8 +96,8 @@ export const LandingPage = () => {
               backdropFilter: 'blur(8px)'
             }}
           >
-            <img src={logoImg} alt="Vitalia Logo" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
-            VITALIA &bull; Educación &bull; Movimiento &bull; Bienestar
+            <Sparkles size={14} color="#bef264" />
+            MOVARA &bull; Educación &bull; Movimiento &bull; Bienestar
           </div>
 
           <h1
@@ -189,7 +188,7 @@ export const LandingPage = () => {
       <section>
         <div className="animate-fade-up stagger-2" style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 36px auto' }}>
           <span className="badge-pill badge-vitalia" style={{ marginBottom: '12px' }}>
-            El Enfoque Vitalia
+            El Método MOVARA
           </span>
           <h2 style={{ fontSize: '28px', color: '#0f172a', margin: '0 0 12px 0' }}>
             Supera las dudas que frenan tus resultados
@@ -389,7 +388,7 @@ export const LandingPage = () => {
             Yessi Lizama
           </h2>
           <p style={{ fontSize: '15px', color: '#475569', lineHeight: 1.7, margin: '0 0 16px 0' }}>
-            Especialista en Cultura Física, Deporte y Salud Integral. Su misión en <strong>VITALIA</strong> es democratizar el conocimiento del cuerpo para que cada alumno aprenda a entrenar, alimentarse y descansar con criterio propio y máxima seguridad.
+            Especialista en Cultura Física, Deporte y Salud Integral. Su misión en <strong>MOVARA</strong> es democratizar el conocimiento del cuerpo para que cada alumno aprenda a entrenar, alimentarse y descansar con criterio propio y máxima seguridad.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[

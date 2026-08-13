@@ -1,12 +1,11 @@
 /**
  * Page: RegisterPage (Public)
- * Modern registration page with Vitalia logo and brand identity.
+ * Modern registration page with MOVARA brand identity.
  */
 
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import logoImg from '../../assets/logo.png';
 import {
   UserPlus,
   Mail,
@@ -57,8 +56,9 @@ export const RegisterPage = () => {
       }}
       className="animate-fade"
     >
-      {/* Left Column: Brand & Info */}
+      {/* Left Column: MOVARA Brand & Info */}
       <div
+        className="animate-slide-left"
         style={{
           background: 'linear-gradient(135deg, #061e12 0%, #0d3822 50%, #14532d 100%)',
           color: '#ffffff',
@@ -70,14 +70,26 @@ export const RegisterPage = () => {
       >
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
-            <img
-              src={logoImg}
-              alt="Vitalia"
-              style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#ffffff', padding: '2px' }}
-            />
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '10px',
+                background: '#ffffff',
+                color: '#0c3822',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 900,
+                fontSize: '20px',
+                fontFamily: 'var(--font-heading)'
+              }}
+            >
+              M
+            </div>
             <div>
-              <div style={{ fontSize: '18px', fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.1 }}>
-                VITALIA
+              <div style={{ fontSize: '20px', fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.1 }}>
+                MOVARA
               </div>
               <div style={{ fontSize: '10px', color: '#bef264', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                 Educación &bull; Movimiento &bull; Bienestar
@@ -86,7 +98,7 @@ export const RegisterPage = () => {
           </div>
 
           <h2 style={{ fontSize: '26px', color: '#ffffff', lineHeight: 1.25, margin: '0 0 16px 0' }}>
-            Inicia tu formación consciente en VITALIA.
+            Inicia tu formación consciente en MOVARA.
           </h2>
 
           <p style={{ fontSize: '14px', color: '#dcfce7', lineHeight: 1.6, margin: '0 0 24px 0' }}>
@@ -109,12 +121,12 @@ export const RegisterPage = () => {
         </div>
 
         <div style={{ fontSize: '12px', color: '#86efac', marginTop: '24px' }}>
-          VITALIA &bull; Registro de Alumnos
+          MOVARA &bull; Registro de Alumnos
         </div>
       </div>
 
       {/* Right Column: Form */}
-      <div style={{ padding: '48px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div className="animate-slide-right" style={{ padding: '48px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '24px', margin: '0 0 6px 0', color: '#0f172a' }}>Crear Cuenta</h2>
           <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
@@ -179,7 +191,7 @@ export const RegisterPage = () => {
 
           <div>
             <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
-              ¿Qué esperas aprender en VITALIA? (Opcional)
+              ¿Qué esperas aprender en MOVARA? (Opcional)
             </label>
             <textarea
               rows={2}
