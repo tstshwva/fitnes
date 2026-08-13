@@ -1,13 +1,13 @@
 /**
  * Component: Header
- * Global Navigation Bar with role-aware menu, active highlights, and profile preview.
+ * Global Navigation Bar with official VITALIA logo, role-aware menu, active highlights, and profile preview.
  */
 
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import logoImg from '../../assets/logo.png';
 import {
-  GraduationCap,
   Home,
   BookOpen,
   Video,
@@ -19,7 +19,8 @@ import {
   Users,
   LogOut,
   LogIn,
-  Radio
+  Radio,
+  Sparkles
 } from 'lucide-react';
 
 export const Header = () => {
@@ -42,8 +43,8 @@ export const Header = () => {
     borderRadius: '8px',
     fontSize: '13px',
     fontWeight: isActive(path) ? 700 : 500,
-    color: isActive(path) ? '#2563eb' : '#475569',
-    background: isActive(path) ? '#eff6ff' : 'transparent',
+    color: isActive(path) ? '#15803d' : '#475569',
+    background: isActive(path) ? '#f0fdf4' : 'transparent',
     transition: 'all 0.15s ease',
     textDecoration: 'none'
   });
@@ -51,20 +52,20 @@ export const Header = () => {
   return (
     <header
       style={{
-        background: 'rgba(255, 255, 255, 0.95)',
+        background: 'rgba(255, 255, 255, 0.98)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid #e2e8f0',
         position: 'sticky',
-        top: '37px', // right below the dev switcher
+        top: '37px', // below dev switcher
         zIndex: 900,
-        boxShadow: '0 1px 3px 0 rgba(0,0,0,0.03)'
+        boxShadow: '0 1px 4px 0 rgba(0,0,0,0.04)'
       }}
     >
       <div
         style={{
           maxWidth: '1240px',
           margin: '0 auto',
-          padding: '12px 24px',
+          padding: '10px 24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -72,29 +73,24 @@ export const Header = () => {
           gap: '16px'
         }}
       >
-        {/* Brand */}
+        {/* Brand with Official Vitalia Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-          <div
+          <img
+            src={logoImg}
+            alt="Vitalia"
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 10px rgba(37, 99, 235, 0.3)'
+              height: '46px',
+              width: 'auto',
+              objectFit: 'contain',
+              borderRadius: '6px'
             }}
-          >
-            <GraduationCap size={22} />
-          </div>
-          <div>
-            <div style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              Programa de Formación Continua
+          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: '18px', fontWeight: 900, color: '#0c3822', letterSpacing: '0.04em', lineHeight: 1.1, fontFamily: 'var(--font-heading)' }}>
+              VITALIA
             </div>
-            <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 500 }}>
-              Cultura Física &bull; Deporte &bull; Salud &bull; Yessi Lizama
+            <div style={{ fontSize: '10px', color: '#65a30d', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              Educación &bull; Movimiento &bull; Bienestar
             </div>
           </div>
         </Link>
@@ -172,13 +168,13 @@ export const Header = () => {
                 <img
                   src={user?.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100'}
                   alt={user?.name}
-                  style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }}
+                  style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover', border: '1px solid #16a34a' }}
                 />
                 <div style={{ textAlign: 'left' }}>
                   <div style={{ fontSize: '12px', fontWeight: 700, color: '#0f172a', lineHeight: 1.1 }}>
                     {user?.name.split(' ')[0]}
                   </div>
-                  <div style={{ fontSize: '10px', color: role === 'instructor' ? '#7c3aed' : '#059669', fontWeight: 600, textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: '10px', color: role === 'instructor' ? '#7c3aed' : '#15803d', fontWeight: 700, textTransform: 'uppercase' }}>
                     {role === 'instructor' ? 'Instructora' : 'Alumno'}
                   </div>
                 </div>

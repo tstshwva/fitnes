@@ -1,11 +1,12 @@
 /**
  * Page: LandingPage (Public)
- * High-impact presentation for the "Programa de Educación y Formación Continua".
+ * High-impact presentation for VITALIA — Educación · Movimiento · Bienestar.
  */
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { programService } from '../../services/programService';
+import logoImg from '../../assets/logo.png';
 import {
   Sparkles,
   ArrowRight,
@@ -39,12 +40,12 @@ export const LandingPage = () => {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          background: 'linear-gradient(135deg, #090d16 0%, #0f172a 50%, #1e1b4b 100%)',
+          background: 'linear-gradient(135deg, #061e12 0%, #0d3822 45%, #14532d 100%)',
           color: '#ffffff',
           borderRadius: '24px',
           padding: '64px 40px',
-          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.4)',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
+          boxShadow: '0 20px 40px -15px rgba(6, 30, 18, 0.5)',
+          border: '1px solid rgba(132, 204, 22, 0.2)'
         }}
       >
         {/* Decorative background glows */}
@@ -53,44 +54,46 @@ export const LandingPage = () => {
             position: 'absolute',
             top: '-50px',
             right: '-50px',
-            width: '320px',
-            height: '320px',
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(0,0,0,0) 70%)',
+            width: '340px',
+            height: '340px',
+            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.2) 0%, rgba(0,0,0,0) 70%)',
             pointerEvents: 'none'
           }}
         />
         <div
           style={{
             position: 'absolute',
-            bottom: '-50px',
-            left: '20%',
-            width: '280px',
-            height: '280px',
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0,0,0,0) 70%)',
+            bottom: '-60px',
+            left: '10%',
+            width: '300px',
+            height: '300px',
+            background: 'radial-gradient(circle, rgba(22, 163, 74, 0.2) 0%, rgba(0,0,0,0) 70%)',
             pointerEvents: 'none'
           }}
         />
 
-        <div style={{ maxWidth: '820px', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '840px', position: 'relative', zIndex: 2 }}>
+          {/* Logo badge in Hero */}
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              background: 'rgba(59, 130, 246, 0.15)',
-              border: '1px solid rgba(96, 165, 250, 0.3)',
-              color: '#93c5fd',
-              padding: '6px 14px',
+              gap: '10px',
+              background: 'rgba(255, 255, 255, 0.12)',
+              border: '1px solid rgba(163, 230, 53, 0.4)',
+              color: '#d9f99d',
+              padding: '6px 16px',
               borderRadius: '999px',
               fontSize: '12px',
-              fontWeight: 700,
+              fontWeight: 800,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              marginBottom: '24px'
+              letterSpacing: '0.06em',
+              marginBottom: '24px',
+              backdropFilter: 'blur(8px)'
             }}
           >
-            <Sparkles size={14} color="#60a5fa" />
-            Educación y Formación Continua &bull; Yessi Lizama
+            <img src={logoImg} alt="Vitalia Logo" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
+            VITALIA &bull; Educación &bull; Movimiento &bull; Bienestar
           </div>
 
           <h1
@@ -109,29 +112,29 @@ export const LandingPage = () => {
           <p
             style={{
               fontSize: 'clamp(15px, 2vw, 18px)',
-              color: '#cbd5e1',
+              color: '#dcfce7',
               lineHeight: 1.6,
               margin: '0 0 32px 0'
             }}
           >
-            En este programa aprenderás, de forma clara y práctica, cómo el ejercicio consciente, la alimentación adecuada y el descanso reparador trabajan juntos para transformar tu bienestar.
+            En este programa aprenderás, de forma clara y práctica, cómo el ejercicio consciente, la alimentación adecuada y el descanso reparador trabajan juntos para transformar tu salud con confianza.
           </p>
 
-          {/* Inspirational block quote */}
+          {/* Quote */}
           <div
             style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              borderLeft: '4px solid #3b82f6',
+              background: 'rgba(255, 255, 255, 0.08)',
+              borderLeft: '4px solid #84cc16',
               padding: '16px 20px',
               borderRadius: '0 12px 12px 0',
               marginBottom: '36px',
               backdropFilter: 'blur(8px)'
             }}
           >
-            <p style={{ margin: 0, fontSize: '15px', color: '#e2e8f0', fontStyle: 'italic', fontWeight: 500 }}>
+            <p style={{ margin: 0, fontSize: '15px', color: '#f0fdf4', fontStyle: 'italic', fontWeight: 500 }}>
               "El conocimiento transforma. El saber te da el poder para avanzar y cuidar tu salud con confianza."
             </p>
-            <span style={{ fontSize: '12px', color: '#93c5fd', fontWeight: 600, display: 'block', marginTop: '6px' }}>
+            <span style={{ fontSize: '12px', color: '#bef264', fontWeight: 700, display: 'block', marginTop: '6px' }}>
               &mdash; Yessi Lizama, Instructora y Educadora de Cultura Física
             </span>
           </div>
@@ -141,7 +144,13 @@ export const LandingPage = () => {
             <Link
               to="/register"
               className="btn-primary"
-              style={{ padding: '14px 28px', fontSize: '15px', borderRadius: '10px' }}
+              style={{
+                padding: '14px 28px',
+                fontSize: '15px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #65a30d 0%, #15803d 100%)',
+                boxShadow: '0 4px 15px rgba(101, 163, 13, 0.4)'
+              }}
             >
               Comenzar Ahora <ArrowRight size={18} />
             </Link>
@@ -151,9 +160,9 @@ export const LandingPage = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
+                background: 'rgba(255, 255, 255, 0.1)',
                 color: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
                 padding: '14px 24px',
                 borderRadius: '10px',
                 fontSize: '15px',
@@ -168,39 +177,39 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      {/* 2. THE 3 FUNDAMENTAL QUESTIONS */}
+      {/* 2. THE 3 FUNDAMENTAL PILLARS */}
       <section>
         <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 36px auto' }}>
-          <span className="badge-pill badge-blue" style={{ marginBottom: '12px' }}>
-            Enfoque Consciente
+          <span className="badge-pill badge-vitalia" style={{ marginBottom: '12px' }}>
+            El Enfoque Vitalia
           </span>
           <h2 style={{ fontSize: '28px', color: '#0f172a', margin: '0 0 12px 0' }}>
             Supera las dudas que frenan tus resultados
           </h2>
           <p style={{ fontSize: '15px', color: '#64748b', margin: 0 }}>
-            La mayoría de las personas repiten rutinas genéricas sin saber su propósito. Nosotros te damos las respuestas con base científica y pedagógica.
+            No necesitas repetir rutinas al azar sin entender su propósito. Desarrolla criterio propio para cuidar tu cuerpo.
           </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
           {[
             {
-              icon: <HeartPulse size={24} color="#2563eb" />,
-              badge: 'Fisiología',
+              icon: <HeartPulse size={24} color="#15803d" />,
+              badge: 'Alimentación & Salud',
               question: '¿Sabes cómo influye la alimentación en tu salud y en tus resultados?',
-              answer: 'Aprende qué nutrientes necesita tu cuerpo para rendir, recuperarse y mantener niveles óptimos de energía sin restricciones dañinas.'
+              answer: 'Aprende qué nutrientes necesita tu cuerpo para rendir, recuperarse y mantener niveles óptimos de energía sin dietas extremas ni restricciones dañinas.'
             },
             {
-              icon: <Activity size={24} color="#059669" />,
-              badge: 'Biomecánica',
+              icon: <Activity size={24} color="#65a30d" />,
+              badge: 'Ejercicio & Biomecánica',
               question: '¿Estás realizando los ejercicios adecuados para ti o solo repites rutinas?',
-              answer: 'Domina los patrones de movimiento esenciales (sentadillas, empujes, tracciones) conociendo el porqué y cómo de cada músculo activado.'
+              answer: 'Domina los patrones de movimiento esenciales (sentadillas, empujes, tracciones) conociendo el porqué biomecánico y la activación articular correcta.'
             },
             {
-              icon: <Moon size={24} color="#7c3aed" />,
-              badge: 'Recuperación',
+              icon: <Moon size={24} color="#15803d" />,
+              badge: 'Descanso Regenerativo',
               question: '¿Comprendes la importancia vital del descanso reparador?',
-              answer: 'El entrenamiento estimula, pero el descanso consolida las adaptaciones. Descubre cómo el sueño regenera tu sistema neuromuscular.'
+              answer: 'El entrenamiento es el estímulo, pero el descanso consolida las adaptaciones celulares. Descubre cómo el sueño regenera tu sistema neuromuscular.'
             }
           ].map((item, idx) => (
             <div
@@ -219,8 +228,8 @@ export const LandingPage = () => {
                     width: '48px',
                     height: '48px',
                     borderRadius: '12px',
-                    background: '#f8fafc',
-                    border: '1px solid #e2e8f0',
+                    background: '#f0fdf4',
+                    border: '1px solid #bbf7d0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -229,7 +238,7 @@ export const LandingPage = () => {
                 >
                   {item.icon}
                 </div>
-                <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#64748b', letterSpacing: '0.05em' }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#15803d', letterSpacing: '0.05em' }}>
                   {item.badge}
                 </span>
                 <h3 style={{ fontSize: '17px', color: '#0f172a', margin: '8px 0 12px 0', lineHeight: 1.4 }}>
@@ -249,13 +258,13 @@ export const LandingPage = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
           <div>
             <span className="badge-pill badge-green" style={{ marginBottom: '8px' }}>
-              Oferta Académica
+              Oferta Formativa
             </span>
             <h2 style={{ fontSize: '28px', color: '#0f172a', margin: '4px 0 0 0' }}>
               Programas de Formación Continua
             </h2>
             <p style={{ fontSize: '14px', color: '#64748b', margin: '6px 0 0 0' }}>
-              Planes estructurados paso a paso con módulos temáticos y acompañamiento.
+              Planes estructurados con lecciones teóricas, clases en vivo y biblioteca de ejercicios.
             </p>
           </div>
         </div>
@@ -281,7 +290,7 @@ export const LandingPage = () => {
                       position: 'absolute',
                       top: '12px',
                       left: '12px',
-                      background: 'rgba(15, 23, 42, 0.85)',
+                      background: 'rgba(12, 56, 34, 0.9)',
                       backdropFilter: 'blur(6px)',
                       color: '#ffffff',
                       padding: '4px 10px',
@@ -297,7 +306,7 @@ export const LandingPage = () => {
                       position: 'absolute',
                       bottom: '12px',
                       right: '12px',
-                      background: 'rgba(37, 99, 235, 0.9)',
+                      background: 'rgba(21, 128, 61, 0.9)',
                       color: '#ffffff',
                       padding: '4px 10px',
                       borderRadius: '6px',
@@ -311,7 +320,7 @@ export const LandingPage = () => {
 
                 <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <span style={{ fontSize: '12px', fontWeight: 600, color: '#2563eb' }}>
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#15803d' }}>
                       Nivel: {p.level}
                     </span>
                     <h3 style={{ fontSize: '18px', color: '#0f172a', margin: '6px 0 10px 0', lineHeight: 1.3 }}>
@@ -347,13 +356,13 @@ export const LandingPage = () => {
         )}
       </section>
 
-      {/* 4. INSTRUCTOR & PHILOSOPHY SPOTLIGHT */}
+      {/* 4. INSTRUCTOR PROFILE */}
       <section
         style={{
           background: '#ffffff',
           borderRadius: '20px',
           padding: '40px',
-          border: '1px solid #e2e8f0',
+          border: '1px solid #bbf7d0',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '36px',
@@ -361,23 +370,23 @@ export const LandingPage = () => {
         }}
       >
         <div>
-          <span className="badge-pill badge-purple" style={{ marginBottom: '12px' }}>
-            Conoce a tu Instructora
+          <span className="badge-pill badge-vitalia" style={{ marginBottom: '12px' }}>
+            Instructora &amp; Fundadora
           </span>
           <h2 style={{ fontSize: '28px', color: '#0f172a', margin: '0 0 16px 0' }}>
             Yessi Lizama
           </h2>
           <p style={{ fontSize: '15px', color: '#475569', lineHeight: 1.7, margin: '0 0 16px 0' }}>
-            Especialista en Cultura Física, Deporte y Salud Integral. Su misión pedagógica es democratizar el conocimiento del cuerpo para que cada persona aprenda a entrenar, alimentarse y descansar con criterio propio y máxima seguridad.
+            Especialista en Cultura Física, Deporte y Salud Integral. Su misión en <strong>VITALIA</strong> es democratizar el conocimiento del cuerpo para que cada alumno aprenda a entrenar, alimentarse y descansar con criterio propio y máxima seguridad.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {[
-              'Acompañamiento personalizado en clases en vivo',
-              'Explicaciones claras y libres de dogmas de internet',
-              'Corrección técnica y análisis biomecánico de movimientos'
+              'Acompañamiento personalizado en clases en directo',
+              'Corrección postural y biomecánica en tiempo real',
+              'Contenido educativo claro, práctico y sin dogmas'
             ].map((pt, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#1e293b', fontWeight: 500 }}>
-                <CheckCircle2 size={16} color="#10b981" />
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#14532d', fontWeight: 600 }}>
+                <CheckCircle2 size={16} color="#16a34a" />
                 {pt}
               </div>
             ))}
@@ -388,7 +397,7 @@ export const LandingPage = () => {
           <img
             src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&auto=format&fit=crop&q=80"
             alt="Yessi Lizama"
-            style={{ width: '100%', maxWidth: '340px', height: '360px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 12px 24px rgba(0,0,0,0.08)' }}
+            style={{ width: '100%', maxWidth: '340px', height: '360px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 12px 24px rgba(20,83,45,0.12)' }}
           />
         </div>
       </section>

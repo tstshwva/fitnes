@@ -1,16 +1,16 @@
 /**
  * Page: RegisterPage (Public)
- * Modern split-screen registration page with role preview.
+ * Modern registration page with Vitalia logo and brand identity.
  */
 
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import logoImg from '../../assets/logo.png';
 import {
   UserPlus,
   Mail,
   User,
-  GraduationCap,
   Sparkles,
   CheckCircle2,
   ArrowRight
@@ -57,10 +57,10 @@ export const RegisterPage = () => {
       }}
       className="animate-fade"
     >
-      {/* Left Banner */}
+      {/* Left Column: Brand & Info */}
       <div
         style={{
-          background: 'linear-gradient(135deg, #090d16 0%, #1e1b4b 100%)',
+          background: 'linear-gradient(135deg, #061e12 0%, #0d3822 50%, #14532d 100%)',
           color: '#ffffff',
           padding: '48px 36px',
           display: 'flex',
@@ -69,60 +69,56 @@ export const RegisterPage = () => {
         }}
       >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '28px' }}>
-            <div
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '8px',
-                background: '#2563eb',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff'
-              }}
-            >
-              <GraduationCap size={20} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
+            <img
+              src={logoImg}
+              alt="Vitalia"
+              style={{ width: '44px', height: '44px', borderRadius: '10px', background: '#ffffff', padding: '2px' }}
+            />
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: 900, letterSpacing: '0.04em', lineHeight: 1.1 }}>
+                VITALIA
+              </div>
+              <div style={{ fontSize: '10px', color: '#bef264', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                Educación &bull; Movimiento &bull; Bienestar
+              </div>
             </div>
-            <span style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '-0.02em' }}>
-              Yessi Lizama
-            </span>
           </div>
 
           <h2 style={{ fontSize: '26px', color: '#ffffff', lineHeight: 1.25, margin: '0 0 16px 0' }}>
-            Inicia tu formación consciente hoy.
+            Inicia tu formación consciente en VITALIA.
           </h2>
 
-          <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: 1.6, margin: '0 0 24px 0' }}>
-            Al registrarte tendrás acceso a los programas estructurados, clases en vivo con corrección en tiempo real y guías prácticas descargables.
+          <p style={{ fontSize: '14px', color: '#dcfce7', lineHeight: 1.6, margin: '0 0 24px 0' }}>
+            Al crear tu cuenta tendrás acceso a los programas estructurados, evaluación de hábitos, clases en vivo y biblioteca de ejercicios.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
-              'Evaluación inicial personalizada de hábitos',
-              'Clases magistrales grabadas en alta definición',
-              'Biblioteca pedagógica de técnica y prevención',
-              'Comunidad guiada por Yessi Lizama'
+              'Diagnóstico inicial de hábitos y objetivos',
+              'Clases magistrales grabadas y en directo',
+              'Biblioteca pedagógica de técnica y biomecánica',
+              'Comunidad guiada por la instructora Yessi Lizama'
             ].map((item, idx) => (
-              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#e2e8f0' }}>
-                <CheckCircle2 size={16} color="#34d399" />
+              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#f0fdf4' }}>
+                <CheckCircle2 size={16} color="#4ade80" />
                 {item}
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '24px' }}>
-          Programa de Educación y Formación Continua &bull; Registro
+        <div style={{ fontSize: '12px', color: '#86efac', marginTop: '24px' }}>
+          VITALIA &bull; Registro de Alumnos
         </div>
       </div>
 
-      {/* Right Form */}
+      {/* Right Column: Form */}
       <div style={{ padding: '48px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{ marginBottom: '24px' }}>
           <h2 style={{ fontSize: '24px', margin: '0 0 6px 0', color: '#0f172a' }}>Crear Cuenta</h2>
           <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
-            Completa tus datos para ingresar al aula virtual
+            Ingresa tus datos para comenzar tu formación
           </p>
         </div>
 
@@ -183,7 +179,7 @@ export const RegisterPage = () => {
 
           <div>
             <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#334155', marginBottom: '6px' }}>
-              ¿Cuál es tu principal motivación? (Opcional)
+              ¿Qué esperas aprender en VITALIA? (Opcional)
             </label>
             <textarea
               rows={2}
@@ -205,8 +201,8 @@ export const RegisterPage = () => {
         </form>
 
         <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '13px', color: '#64748b' }}>
-          ¿Ya tienes cuenta activa?{' '}
-          <Link to="/login" style={{ color: '#2563eb', fontWeight: 700, textDecoration: 'none' }}>
+          ¿Ya tienes cuenta?{' '}
+          <Link to="/login" style={{ color: '#15803d', fontWeight: 700, textDecoration: 'none' }}>
             Inicia sesión aquí
           </Link>
         </div>

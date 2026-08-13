@@ -1,12 +1,13 @@
 /**
  * Component: Layout
- * Master layout wrapper for all application views.
+ * Master layout wrapper with Vitalia brand identity.
  */
 
 import React from 'react';
 import { Header } from './Header';
 import { DevRoleSwitcher } from './DevRoleSwitcher';
-import { GraduationCap, Heart, Sparkles, BookOpen, ShieldCheck } from 'lucide-react';
+import logoImg from '../../assets/logo.png';
+import { Heart, Sparkles, BookOpen, ShieldCheck } from 'lucide-react';
 
 export const Layout = ({ children }) => {
   return (
@@ -27,9 +28,9 @@ export const Layout = ({ children }) => {
       {/* Footer */}
       <footer
         style={{
-          background: '#0f172a',
+          background: '#0c1a13',
           color: '#f8fafc',
-          borderTop: '1px solid #1e293b',
+          borderTop: '1px solid #163824',
           padding: '48px 24px 24px 24px',
           marginTop: 'auto'
         }}
@@ -46,24 +47,20 @@ export const Layout = ({ children }) => {
         >
           {/* Col 1 */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-              <div
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '8px',
-                  background: '#2563eb',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff'
-                }}
-              >
-                <GraduationCap size={18} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+              <img
+                src={logoImg}
+                alt="Vitalia Logo"
+                style={{ height: '48px', width: 'auto', borderRadius: '8px', background: '#ffffff', padding: '4px' }}
+              />
+              <div>
+                <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#ffffff', margin: 0, letterSpacing: '0.04em' }}>
+                  VITALIA
+                </h3>
+                <span style={{ fontSize: '11px', color: '#84cc16', fontWeight: 700, textTransform: 'uppercase' }}>
+                  Educación &bull; Movimiento &bull; Bienestar
+                </span>
               </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                Programa Yessi Lizama
-              </h3>
             </div>
             <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
               "El conocimiento transforma. El saber te da el poder para avanzar y cuidar tu salud con confianza."
@@ -103,7 +100,7 @@ export const Layout = ({ children }) => {
             maxWidth: '1240px',
             margin: '0 auto',
             paddingTop: '24px',
-            borderTop: '1px solid #1e293b',
+            borderTop: '1px solid #163824',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -114,10 +111,10 @@ export const Layout = ({ children }) => {
           }}
         >
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} Programa de Educación y Formación Continua &bull; Instructora Yessi Lizama.
+            &copy; {new Date().getFullYear()} VITALIA &bull; Educación, Movimiento y Bienestar &bull; Instructora Yessi Lizama.
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <ShieldCheck size={14} color="#10b981" />
+            <ShieldCheck size={14} color="#22c55e" />
             <span>Arquitectura desacoplada: Services &bull; Mock Client &bull; LocalStorage</span>
           </div>
         </div>
