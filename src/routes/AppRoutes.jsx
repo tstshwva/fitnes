@@ -1,5 +1,5 @@
 /**
- * AppRoutes Configuration (Phase 3 - Student Experience Complete)
+ * AppRoutes Configuration (Phase 4 - Complete Instructor & Partner Panel)
  */
 
 import React from 'react';
@@ -21,12 +21,12 @@ import { LibraryPage } from '../pages/student/LibraryPage';
 import { ExercisesPage } from '../pages/student/ExercisesPage';
 import { StudentProfilePage } from '../pages/student/StudentProfilePage';
 
-// Instructor Pages
+// Instructor / Admin Pages (Phase 4 Interactive)
 import { InstructorDashboard } from '../pages/instructor/InstructorDashboard';
-import { ManageStudentsPlaceholder } from '../pages/instructor/ManageStudentsPlaceholder';
-import { ManageProgramsPlaceholder } from '../pages/instructor/ManageProgramsPlaceholder';
-import { ManageClassesPlaceholder } from '../pages/instructor/ManageClassesPlaceholder';
-import { ManageExercisesPlaceholder } from '../pages/instructor/ManageExercisesPlaceholder';
+import { ManageStudentsPage } from '../pages/instructor/ManageStudentsPage';
+import { ManageProgramsPage } from '../pages/instructor/ManageProgramsPage';
+import { ManageClassesPage } from '../pages/instructor/ManageClassesPage';
+import { ManageExercisesPage } from '../pages/instructor/ManageExercisesPage';
 
 export const AppRoutes = () => {
   return (
@@ -95,11 +95,11 @@ export const AppRoutes = () => {
           }
         />
 
-        {/* Instructor Protected Routes */}
+        {/* Instructor / Admin / Partner Protected Routes */}
         <Route
           path="/admin/dashboard"
           element={
-            <RoleProtectedRoute allowedRoles={['instructor']}>
+            <RoleProtectedRoute allowedRoles={['instructor', 'admin']}>
               <InstructorDashboard />
             </RoleProtectedRoute>
           }
@@ -107,32 +107,32 @@ export const AppRoutes = () => {
         <Route
           path="/admin/alumnos"
           element={
-            <RoleProtectedRoute allowedRoles={['instructor']}>
-              <ManageStudentsPlaceholder />
+            <RoleProtectedRoute allowedRoles={['instructor', 'admin']}>
+              <ManageStudentsPage />
             </RoleProtectedRoute>
           }
         />
         <Route
           path="/admin/programas"
           element={
-            <RoleProtectedRoute allowedRoles={['instructor']}>
-              <ManageProgramsPlaceholder />
+            <RoleProtectedRoute allowedRoles={['instructor', 'admin']}>
+              <ManageProgramsPage />
             </RoleProtectedRoute>
           }
         />
         <Route
           path="/admin/clases"
           element={
-            <RoleProtectedRoute allowedRoles={['instructor']}>
-              <ManageClassesPlaceholder />
+            <RoleProtectedRoute allowedRoles={['instructor', 'admin']}>
+              <ManageClassesPage />
             </RoleProtectedRoute>
           }
         />
         <Route
           path="/admin/ejercicios"
           element={
-            <RoleProtectedRoute allowedRoles={['instructor']}>
-              <ManageExercisesPlaceholder />
+            <RoleProtectedRoute allowedRoles={['instructor', 'admin']}>
+              <ManageExercisesPage />
             </RoleProtectedRoute>
           }
         />
